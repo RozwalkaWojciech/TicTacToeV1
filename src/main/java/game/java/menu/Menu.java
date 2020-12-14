@@ -12,7 +12,7 @@ public final class Menu {
     }
 
     public static void start(Game game) {
-
+        STDOUT.info("Welcome to the game of Tic-Tac-Toe");
     }
 
 }
