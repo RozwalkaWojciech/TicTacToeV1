@@ -1,7 +1,10 @@
+import game.java.game.Game;
 
 public class App {
 
     public static void main(String[] args) {
-        System.out.println("Hello TicTAcToe");
+
+        Game game = new Game();
+        game.start(game);
     }
 }
