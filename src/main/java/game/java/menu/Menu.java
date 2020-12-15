@@ -15,4 +15,19 @@ public final class Menu {
         STDOUT.info("\nWelcome to the game of Tic-Tac-Toe\n");
     }
 
+    public static void printGrid(Game game) {
+        for (int i = 0; i < 3; i++) {
+            STDOUT.info("\n");
+            if (i != 0) {
+                STDOUT.info("-----\n");
+            }
+            for (int j = 0; j < 3; j++) {
+                STDOUT.info(game. grid[i][j]);
+                if (j != 2) {
+                    STDOUT.info("|");
+                }
+            }
+        }
+    }
+
 }
