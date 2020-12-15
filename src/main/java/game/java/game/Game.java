@@ -1,7 +1,9 @@
 package game.java.game;
 
 import game.java.menu.Menu;
+import lombok.Getter;
 
+@Getter
 public class Game {
 
     private char x;
@@ -19,6 +21,7 @@ public class Game {
 
     public void start(Game game) {
         Menu.start(game);
+        Menu.gameRules();
         Menu.printGrid(game);
     }
 

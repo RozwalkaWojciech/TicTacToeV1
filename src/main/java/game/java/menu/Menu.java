@@ -22,12 +22,20 @@ public final class Menu {
                 STDOUT.info("-----\n");
             }
             for (int j = 0; j < 3; j++) {
-                STDOUT.info(game. grid[i][j]);
+                STDOUT.info(String.valueOf(game.getGrid()[i][j]));
                 if (j != 2) {
                     STDOUT.info("|");
                 }
             }
         }
+    }
+
+    public static void gameRules() {
+        STDOUT.info("7|8|9\n");
+        STDOUT.info("-----\n");
+        STDOUT.info("4|5|6\n");
+        STDOUT.info("-----\n");
+        STDOUT.info("1|2|3\n");
     }
 
 }
