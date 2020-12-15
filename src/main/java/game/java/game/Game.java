@@ -12,23 +12,31 @@ public class Game {
     public Game() {
         x = 'x';
         o = 'o';
-        grid = new char[3][6];
+        grid = new char[3][3];
     }
 
-    public void start(Game game){
+    public void start(Game game) {
         Menu.start(game);
+        initEmptyGrid();
         printGrid();
     }
 
-    private void printGrid(){
-        for (int i = 0; i < 2; i++) {
-            if (i==0){
-                System.out.print(" | | ");
+    private void initEmptyGrid() {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                grid[i][j] = ' ';
             }
+        }
+    }
+
+    private void printGrid() {
+        for (int i = 0; i < 3; i++) {
             System.out.println();
-            for (int j = 0; j < 6; j++) {
-                grid[i][j] = '-';
+            for (int j = 0; j < 3; j++) {
                 System.out.print(grid[i][j]);
+                if (j != 2) {
+                    System.out.print("|");
+                }
             }
         }
     }
