@@ -10,22 +10,21 @@ public class Game {
 
     private final char[][] grid;
     private char win;
-    private boolean gameEnd;
     private char player;
     private int choice;
 
     public Game() {
 
         grid = new char[3][3];
-        gameEnd = false;
         player = 'o';
+        win = 'n';
 
         initEmptyGrid();
     }
 
     public void start(Game game) {
         Menu.start(game);
-        while (!gameEnd) {
+        while (!gameEnd()) {
             Menu.printGrid(game);
             playerMove();
         }
@@ -42,6 +41,10 @@ public class Game {
                 grid[i][j] = ' ';
             }
         }
+    }
+
+    private boolean gameEnd() {
+        return win == 'x' || win == 'o' || win == 't';
     }
 
     private void playerMove() {
