@@ -29,6 +29,7 @@ public class Game {
             Menu.printGrid(game);
             playerMove();
         }
+        Menu.winMenu(win);
     }
 
     private void initEmptyGrid() {

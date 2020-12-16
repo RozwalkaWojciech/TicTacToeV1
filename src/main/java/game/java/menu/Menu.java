@@ -42,4 +42,11 @@ public final class Menu {
                 "1|2|3\n");
     }
 
+    public static void winMenu(char win) {
+        STDOUT.info("The winner is player: {}", win);
+    }
+
+    public static void tieMenu() {
+        STDOUT.info("TIE! Nobody won!");
+    }
 }
