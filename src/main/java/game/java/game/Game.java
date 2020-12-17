@@ -113,6 +113,26 @@ public class Game {
         }
     }
 
+    private void checkGameWinner(char[][] grid) {
+        for (int i = 0; i < 3; i++) {
+            if (grid[i][0] == 'x' && grid[i][1] == 'x' && grid[i][2] == 'x') {
+                win = 'x';
+            } else if (grid[0][i] == 'x' && grid[1][i] == 'x' && grid[2][i] == 'x') {
+                win = 'x';
+            } else if (grid[i][0] == 'o' && grid[i][1] == 'o' && grid[i][2] == 'o') {
+                win = 'o';
+            } else if (grid[0][i] == 'o' && grid[1][i] == 'o' && grid[2][i] == 'o') {
+                win = 'o';
+            } else if (grid[1][1] == 'x' && ((grid[0][0] == 'x' && grid[2][2] == 'x') || (grid[0][2] == 'x' && grid[2][0] == 'x'))) {
+                win = 'x';
+            } else if (grid[1][1] == 'o' && ((grid[0][0] == 'o' && grid[2][2] == 'o') || (grid[0][2] == 'o' && grid[2][0] == 'o'))) {
+                win = 'o';
+            } else if (motionCounter == 9) {
+                win = 't';
+            }
+        }
+    }
+
     private void switchPlayer() {
         if (player == 'x') {
             player = 'o';
