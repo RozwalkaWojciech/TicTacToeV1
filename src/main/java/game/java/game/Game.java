@@ -11,8 +11,8 @@ public class Game {
     private final char[][] grid;
     private char win;
     private char player;
-    private int choice;
     private int motionCounter;
+    private final Scanner scanner = new Scanner(System.in);
 
     public Game() {
 
@@ -28,7 +28,7 @@ public class Game {
         Menu.start(game);
         while (!gameEnd()) {
             Menu.printGrid(game);
-            playerMove();
+            playerChoice(scanner.nextInt());
             checkGameWinner(grid);
         }
         Menu.printGrid(game);
@@ -51,69 +51,70 @@ public class Game {
         return win == 'x' || win == 'o' || win == 't';
     }
 
-    private void playerMove() {
-        Scanner scanner = new Scanner(System.in);
-        choice = scanner.nextInt();
-
+    private void playerChoice(int choice) {
         if (choice > 0 && choice < 10) {
-            switch (choice) {
-                case 1:
-                    if (grid[2][0] == ' ') {
-                        grid[2][0] = player;
-                        switchPlayer();
-                    }
-                    break;
-                case 2:
-                    if (grid[2][1] == ' ') {
-                        grid[2][1] = player;
-                        switchPlayer();
-                    }
-                    break;
-                case 3:
-                    if (grid[2][2] == ' ') {
-                        grid[2][2] = player;
-                        switchPlayer();
-                    }
-                    break;
-                case 4:
-                    if (grid[1][0] == ' ') {
-                        grid[1][0] = player;
-                        switchPlayer();
-                    }
-                    break;
-                case 5:
-                    if (grid[1][1] == ' ') {
-                        grid[1][1] = player;
-                        switchPlayer();
-                    }
-                    break;
-                case 6:
-                    if (grid[1][2] == ' ') {
-                        grid[1][2] = player;
-                        switchPlayer();
-                    }
-                    break;
-                case 7:
-                    if (grid[0][0] == ' ') {
-                        grid[0][0] = player;
-                        switchPlayer();
-                    }
-                    break;
-                case 8:
-                    if (grid[0][1] == ' ') {
-                        grid[0][1] = player;
-                        switchPlayer();
-                    }
-                    break;
-                case 9:
-                    if (grid[0][2] == ' ') {
-                        grid[0][2] = player;
-                        switchPlayer();
-                    }
-                    break;
-                default:
-                    break;
-            }
+            playerMove(choice);
+        }
+    }
+
+    private void playerMove(int choice) {
+        switch (choice) {
+            case 1:
+                if (grid[2][0] == ' ') {
+                    grid[2][0] = player;
+                    switchPlayer();
+                }
+                break;
+            case 2:
+                if (grid[2][1] == ' ') {
+                    grid[2][1] = player;
+                    switchPlayer();
+                }
+                break;
+            case 3:
+                if (grid[2][2] == ' ') {
+                    grid[2][2] = player;
+                    switchPlayer();
+                }
+                break;
+            case 4:
+                if (grid[1][0] == ' ') {
+                    grid[1][0] = player;
+                    switchPlayer();
+                }
+                break;
+            case 5:
+                if (grid[1][1] == ' ') {
+                    grid[1][1] = player;
+                    switchPlayer();
+                }
+                break;
+            case 6:
+                if (grid[1][2] == ' ') {
+                    grid[1][2] = player;
+                    switchPlayer();
+                }
+                break;
+            case 7:
+                if (grid[0][0] == ' ') {
+                    grid[0][0] = player;
+                    switchPlayer();
+                }
+                break;
+            case 8:
+                if (grid[0][1] == ' ') {
+                    grid[0][1] = player;
+                    switchPlayer();
+                }
+                break;
+            case 9:
+                if (grid[0][2] == ' ') {
+                    grid[0][2] = player;
+                    switchPlayer();
+                }
+                break;
+            default:
+                break;
         }
     }
 
@@ -140,10 +141,9 @@ public class Game {
     private void switchPlayer() {
         if (player == 'x') {
             player = 'o';
-            motionCounter += 1;
         } else {
             player = 'x';
-            motionCounter += 1;
         }
+        motionCounter += 1;
     }
 }
