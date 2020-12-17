@@ -43,6 +43,11 @@ public final class Menu {
                 "1|2|3\n");
     }
 
+    public static void warning() {
+        STDOUT.info("\nPlease enter number from 1 to 9 by schema!" +
+                "\nField should be empty!\n");
+    }
+
     public static void winMenu(char win) {
         STDOUT.info("\nThe winner is player: {}", win);
     }

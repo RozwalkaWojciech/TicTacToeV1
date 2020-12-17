@@ -3,7 +3,9 @@ package game.java.game;
 import game.java.menu.Menu;
 import lombok.Getter;
 
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 
 @Getter
 public class Game {
@@ -13,10 +15,12 @@ public class Game {
     private char player;
     private int motionCounter;
     private final Scanner scanner = new Scanner(System.in);
+    private Set<Integer> motions;
 
     public Game() {
 
         grid = new char[3][3];
+        motions = new HashSet<>();
         player = 'o';
         win = 'n';
         motionCounter = 0;
@@ -52,12 +56,15 @@ public class Game {
     }
 
     private void playerChoice(int choice) {
-        if (choice > 0 && choice < 10) {
-            playerMove(choice);
+        if (choice > 0 && choice < 10 && !motions.contains(choice)) {
+            checkField(choice);
+            motions.add(choice);
+        } else {
+            Menu.warning();
         }
     }
 
-    private void playerMove(int choice) {
+    private void checkField(int choice) {
         switch (choice) {
             case 1:
                 if (grid[2][0] == ' ') {
