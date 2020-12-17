@@ -12,11 +12,11 @@ public final class Menu {
     }
 
     public static void start(Game game) {
-        STDOUT.info("\nWelcome to the game of Tic-Tac-Toe" +
-                "\nUse the given numbers to select a specific field");
+        STDOUT.info("\nWelcome to the game of Tic-Tac-Toe." +
+                "\nUse the given numbers to select a specific field.\n");
         gameRules();
-        STDOUT.info("Are you ready? Let's start!" +
-                "\n First start: {}\n", game.getPlayer());
+        STDOUT.info("\nAre you ready? Let's start!" +
+                "\nFirst begin: {}\n", game.getPlayer());
     }
 
     public static void printGrid(Game game) {
@@ -44,10 +44,10 @@ public final class Menu {
     }
 
     public static void winMenu(char win) {
-        STDOUT.info("The winner is player: {}", win);
+        STDOUT.info("\nThe winner is player: {}", win);
     }
 
     public static void tieMenu() {
-        STDOUT.info("TIE! Nobody won!");
+        STDOUT.info("\nTIE! Nobody won!");
     }
 }

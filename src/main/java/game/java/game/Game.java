@@ -26,11 +26,12 @@ public class Game {
 
     public void start(Game game) {
         Menu.start(game);
-        checkGameWinner(grid);
         while (!gameEnd()) {
             Menu.printGrid(game);
             playerMove();
+            checkGameWinner(grid);
         }
+        Menu.printGrid(game);
         if (win == 't') {
             Menu.tieMenu();
         } else {
