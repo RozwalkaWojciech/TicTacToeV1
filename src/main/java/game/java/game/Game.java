@@ -12,18 +12,21 @@ public class Game {
     private char win;
     private char player;
     private int choice;
+    private int motionCounter;
 
     public Game() {
 
         grid = new char[3][3];
         player = 'o';
         win = 'n';
+        motionCounter = 0;
 
         initEmptyGrid();
     }
 
     public void start(Game game) {
         Menu.start(game);
+        checkGameWinner(grid);
         while (!gameEnd()) {
             Menu.printGrid(game);
             playerMove();
@@ -136,8 +139,10 @@ public class Game {
     private void switchPlayer() {
         if (player == 'x') {
             player = 'o';
+            motionCounter += 1;
         } else {
             player = 'x';
+            motionCounter += 1;
         }
     }
 }

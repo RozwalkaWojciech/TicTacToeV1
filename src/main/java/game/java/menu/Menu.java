@@ -15,7 +15,8 @@ public final class Menu {
         STDOUT.info("\nWelcome to the game of Tic-Tac-Toe" +
                 "\nUse the given numbers to select a specific field");
         gameRules();
-        STDOUT.info("Are you ready? Let's start!\n");
+        STDOUT.info("Are you ready? Let's start!" +
+                "\n First start: {}\n", game.getPlayer());
     }
 
     public static void printGrid(Game game) {
