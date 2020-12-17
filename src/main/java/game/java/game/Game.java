@@ -15,7 +15,7 @@ public class Game {
     private char player;
     private int motionCounter;
     private final Scanner scanner = new Scanner(System.in);
-    private Set<Integer> motions;
+    private final Set<Integer> motions;
 
     public Game() {
 
@@ -32,7 +32,7 @@ public class Game {
         Menu.start(game);
         while (!gameEnd()) {
             Menu.printGrid(game);
-            playerChoice(scanner.nextInt());
+            playerChoice();
             checkGameWinner(grid);
         }
         Menu.printGrid(game);
@@ -55,7 +55,14 @@ public class Game {
         return win == 'x' || win == 'o' || win == 't';
     }
 
-    private void playerChoice(int choice) {
+    private void playerChoice() {
+        String input = scanner.next();
+        int choice = 0;
+        try {
+            choice = Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            System.out.println("This is not a number!");
+        }
         if (choice > 0 && choice < 10 && !motions.contains(choice)) {
             checkField(choice);
             motions.add(choice);
