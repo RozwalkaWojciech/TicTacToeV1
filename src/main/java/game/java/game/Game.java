@@ -66,6 +66,7 @@ public class Game {
         if (choice > 0 && choice < 10 && !motions.contains(choice)) {
             checkField(choice);
             motions.add(choice);
+            switchPlayer();
         } else {
             Menu.warningNumber();
         }
@@ -76,55 +77,46 @@ public class Game {
             case 1:
                 if (grid[2][0] == ' ') {
                     grid[2][0] = player;
-                    switchPlayer();
                 }
                 break;
             case 2:
                 if (grid[2][1] == ' ') {
                     grid[2][1] = player;
-                    switchPlayer();
                 }
                 break;
             case 3:
                 if (grid[2][2] == ' ') {
                     grid[2][2] = player;
-                    switchPlayer();
                 }
                 break;
             case 4:
                 if (grid[1][0] == ' ') {
                     grid[1][0] = player;
-                    switchPlayer();
                 }
                 break;
             case 5:
                 if (grid[1][1] == ' ') {
                     grid[1][1] = player;
-                    switchPlayer();
                 }
                 break;
             case 6:
                 if (grid[1][2] == ' ') {
                     grid[1][2] = player;
-                    switchPlayer();
                 }
                 break;
             case 7:
                 if (grid[0][0] == ' ') {
                     grid[0][0] = player;
-                    switchPlayer();
                 }
                 break;
             case 8:
                 if (grid[0][1] == ' ') {
                     grid[0][1] = player;
-                    switchPlayer();
                 }
                 break;
             case 9:
                 if (grid[0][2] == ' ') {
                     grid[0][2] = player;
-                    switchPlayer();
                 }
                 break;
             default:
