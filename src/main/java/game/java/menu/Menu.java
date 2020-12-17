@@ -43,8 +43,12 @@ public final class Menu {
                 "1|2|3\n");
     }
 
-    public static void warning() {
-        STDOUT.info("\nPlease enter number from 1 to 9 by schema!" +
+    public static void warningSign() {
+        STDOUT.info("\nThis is not a number!\n");
+    }
+
+    public static void warningNumber() {
+        STDOUT.info("\nPlease enter a number from 1 to 9 by schema!" +
                 "\nField should be empty!\n");
     }
 

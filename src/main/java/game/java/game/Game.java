@@ -61,13 +61,13 @@ public class Game {
         try {
             choice = Integer.parseInt(input);
         } catch (NumberFormatException e) {
-            System.out.println("This is not a number!");
+            Menu.warningSign();
         }
         if (choice > 0 && choice < 10 && !motions.contains(choice)) {
             checkField(choice);
             motions.add(choice);
         } else {
-            Menu.warning();
+            Menu.warningNumber();
         }
     }
 
